@@ -1,9 +1,0 @@
-id = 85030
-Training data: Percipitation_average_14d, CloudCover_average_13d, Sun_duration_average_7d
-Regressor, mse, R2 
-LinearRegression(): 0.0023645154280125774  0.240484116049128
-DecisionTreeRegressor(): 0.003915581524763459  -0.257740308111283
-RandomForestRegressor(): 0.0027372703246151056  0.12074995765201091
-GradientBoostingRegressor(): 0.002553194200127799  0.17987781900910071
-SVR(): 0.004624689193920393  -0.48551574648461515
-MLPRegressor(): 0.005291864099310737  -0.6998217865358332
