@@ -95,7 +95,7 @@ min_date = min(data[0][0] for data in full_data)
 max_date = max(data[-1][0] for data in full_data)
 
 pickle.dump(full_data, open(os.path.join("data", "parsed.pickle"), "wb"))
-pickle.dump(filenames, open(os.path.join("data", "filenames.picjle"), "wb"))
+pickle.dump(filenames, open(os.path.join("data", "filenames.pickle"), "wb"))
 print(sum(map(len, full_data)))
 
 print(min_date)
