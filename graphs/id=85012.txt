@@ -1,0 +1,9 @@
+id = 85012
+Training data: Percipitation_average_1d, CloudCover_average_2d, Percipitation_shift_2d
+Regressor, mse, R2 
+LinearRegression(): 0.0194467616649872  0.4041204784905842
+DecisionTreeRegressor(): 0.04318092849985894  -0.3231319155391714
+RandomForestRegressor(): 0.025373759463412394  0.22250789574002117
+GradientBoostingRegressor(): 0.02273558866541363  0.3033456197710598
+SVR(): 0.03209543894392499  0.016545009909068598
+MLPRegressor(): 0.030260335904883057  0.07277546820658387
