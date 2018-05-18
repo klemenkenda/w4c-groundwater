@@ -18,8 +18,7 @@ def clip(data, fst, snd):
     return np.append(data[:fst], data[snd:])
 
 
-def all_options(n):
-    combs = list(range(n))
+def all_options(combs, n):
     for k in range(1, n + 1):
         yield from itertools.combinations(combs, k)
 
@@ -40,14 +39,13 @@ def split_data(data, train_perc=0.7, seed=None):
 def predict_all(inds, data, objective_ind, regressor, seed=2018):
     train, test = split_data(data, seed=seed)
     predictors = np.array(
-        [inds[j] for j in range(len(inds)) if j != objective_ind])
+        [j for j in range(len(inds)) if j != objective_ind])
     j = 0
-
     rtr = []
-    for arr in all_options(len(predictors)):
+    for arr in all_options(predictors, len(predictors)):
         j += 1
         r2, fit = predict(train, test, list(arr), objective_ind, regressor(), j)
-        assert len(fit.coef_) == len(list(arr))
+        #assert len(fit.coef_) == len(list(arr))
         rtr.append((r2, list(arr), fit))
 
     rtr.sort(reverse=True)
@@ -65,7 +63,7 @@ def predict(train, test, predictors, objective, regressor, su):
 
     r2 = r2_score(test_target, fit.predict(test_data.T))
     # print("r2 :","{0:1.4f} |".format(r2_score(test_target, fit.predict(test_data.T))))
-    if su == 376:
+    if False and su == 376:
         plt.plot(test_target)
         plt.plot(fit.predict(test_data.T))
         print("r2 :", "{0:1.4f} |".format(
